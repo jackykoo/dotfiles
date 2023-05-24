@@ -17,6 +17,7 @@ export PATH="$HOME/opt/anaconda3/bin:$PATH"  # commented out by conda initialize
 # ---------------------------------------
 # ----           Homebrew            ----
 # ---------------------------------------
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # For using the homebrew GNU compiler rather than xcode
 export PATH="/usr/local/bin:$PATH"
@@ -32,6 +33,10 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 export PATH="/usr/local/go/bin:$PATH"
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+  . "/opt/homebrew/opt/nvm/nvm.sh"
+
 # ---------------------------------------
 # ----           Alias               ----
 # ---------------------------------------
@@ -40,28 +45,12 @@ alias grep='grep --colour=auto'
 alias l='ls -lF'
 alias la='ls -laF'
 
-alias g++='g++-9 -std=c++1z -O2 -Wall'
+alias g++='g++ -std=c++1z -O2 -Wall -Wtype-limits'
+alias python='python3'
+alias pip='pip3'
 
 
 # ---------------------------------------
 # ----         macOS warning         ----
 # ---------------------------------------
 export BASH_SILENCE_DEPRECATION_WARNING=1
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/jackykoo/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/jackykoo/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/jackykoo/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/jackykoo/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-. "$HOME/.cargo/env"
-
-export PATH="/Users/jackykoo/.local/share/solana/install/active_release/bin:$PATH"
